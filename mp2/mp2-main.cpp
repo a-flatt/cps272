@@ -10,45 +10,22 @@ int main ()
     // Services times determined at creation of new customer object.
 
     Queue queue;
-    int arrivalTime = rand() % 4 + 1;
+    int arrivalTime = 0;
     int elapsedTime = 1;
-
-    /*
-    while (arrivalTime <= 120){
-        while (elapsedTime <= arrivalTime){
-            cout << "Elapsed time: " << elapsedTime << endl;
-            elapsedTime++; // may need to prefix this.
-        }
-        if (queue.isEmpty()){
-            queue.addCustomer(arrivalTime);
-        }
-        
-        else if (queue.serviceFinished() == elapsedTime){
-            queue.pop();
-        }
-        
-        
-        
-        cout << "Arrival time: " << arrivalTime << endl;
-        cout << elapsedTime << endl;
-        arrivalTime += rand() % 4 + 1;
-    }
-    */
+    int finish;
 
     while (elapsedTime < 120){
         arrivalTime += rand() % 4 + 1;
+        // if (queue.isEmpty()) queue.addCustomer(arrivalTime);
         while (elapsedTime <= arrivalTime){
-            if (elapsedTime == queue.serviceFinished())
-                queue.pop();
             cout << "Elapsed Time: " << elapsedTime << endl;
+            if ((!queue.isEmpty()) && elapsedTime == queue.serviceFinished()){
+                finish = queue.pop();
+                cout << "A customer has been removed from the queue." << endl;
+            }
             elapsedTime++;
         }
-        if (queue.isEmpty())
-            queue.addCustomer(arrivalTime);
-        
-        cout << "Arrival Time: " << arrivalTime << endl;
+        queue.addCustomer(arrivalTime, finish);
+        // cout << "A new customer has been added to the queue at minute: " << arrivalTime << endl;
     }
-
-    
-
 }

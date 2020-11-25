@@ -12,6 +12,7 @@ class Customer {
         Customer (int arrival, int starttime);
 
         int finish () {return d_finish;};
+        int servicetime() {return d_servicetime;};
 
 
 };
@@ -37,8 +38,8 @@ Customer::Customer (int arrival)
 Customer::Customer (int arrival, int startTime)
 {
     d_arrival = arrival;
-    d_start = startTime;
-    d_servicetime = rand() % 5;
+    (arrival > startTime) ? d_start = arrival : d_start = startTime;
+    d_servicetime = rand() % 4 + 1;
     d_finish = d_start + d_servicetime;
 }
 
