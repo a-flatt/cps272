@@ -3,29 +3,26 @@
 #include <cmath>
 using namespace std;
 
+int SIMULATION_TIME = 120;
+
 int main ()
 {
-    // Out here determined arrival times. 
-    // Should also keep the counter for elapsedTime.
-    // Services times determined at creation of new customer object.
-
     Queue queue;
     int arrivalTime = 0;
     int elapsedTime = 1;
-    int finish;
+    int priorFinishTime;
 
-    while (elapsedTime < 120){
+    while (elapsedTime < SIMULATION_TIME){
         arrivalTime += rand() % 4 + 1;
-        // if (queue.isEmpty()) queue.addCustomer(arrivalTime);
         while (elapsedTime <= arrivalTime){
             cout << "Elapsed Time: " << elapsedTime << endl;
             if ((!queue.isEmpty()) && elapsedTime == queue.serviceFinished()){
-                finish = queue.pop();
+                queue.pop();
                 cout << "A customer has been removed from the queue." << endl;
             }
             elapsedTime++;
         }
-        queue.addCustomer(arrivalTime, finish);
-        // cout << "A new customer has been added to the queue at minute: " << arrivalTime << endl;
+        queue.addCustomer(arrivalTime);
     }
+    cout << "Max wait time: " << queue.maxWaitTime() << endl;
 }

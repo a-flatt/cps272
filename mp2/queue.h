@@ -8,63 +8,64 @@ class Queue {
 
     int serviceTime;
     int customerCount = 1;
+    int d_maxWaitTime = 0;
     queue<Customer> customers;
     
     public:
         Queue () {};
-        // Queue (int arrivalTime); // Constructor for first customer. 
 
-        void addCustomer (int arrival, int finish);
-        bool isEmpty();
-        Customer front();
-        int pop();
-        int serviceFinished();
+        void addCustomer (int arrival);
+        Customer front ();
+        bool isEmpty ();
+        int pop ();
+        int serviceFinished ();
+        // int priorFinishedTime () {return }
+
+        int maxWaitTime () {return d_maxWaitTime;};
 };
 
-void Queue::addCustomer (int arrivalTime, int finish)
+void Queue::addCustomer (int arrivalTime)
 {
-    cout << "A customer has been added to queue at: " << arrivalTime << endl;
+    cout << "A customer has been added to queue at this time. " << endl;
     Customer priorCustomer, c;
     int priorFinishTime;
+
     if (customerCount == 1){
         Customer newCustomer(arrivalTime, arrivalTime);
         c = newCustomer;
-        cout << "Service time for first Customer " << customerCount << " is " << c.servicetime() << endl;
+        cout << "Service time for Customer " << customerCount << " is " << c.servicetime() << endl;
         cout << "Finish time of Customer " << customerCount << " is " << c.finish() << endl;
-        
     }
     else {
-        priorCustomer = customers.front();
+        priorCustomer = customers.back();
         priorFinishTime = priorCustomer.finish();
-        Customer newCustomer(arrivalTime, finish);
+        Customer newCustomer(arrivalTime, priorFinishTime);
         c = newCustomer;
         cout << "Service time for Customer " << customerCount << " is " << c.servicetime() << endl;
         cout << "Finish time of Customer " << customerCount << " is " << c.finish() << endl;
-        
-        // customerCount++;
     }
-
     customers.push(c);
+    if (d_maxWaitTime < c.waittime())
+        d_maxWaitTime = c.waittime();
     customerCount++;
 }
 
-Customer Queue::front() 
+Customer Queue::front () 
 {
     return customers.front();
-}
-
-int Queue::pop()
-{
-    Customer c = customers.front();
-    int priorFinishTime = c.finish();
-    customers.pop();
-    return priorFinishTime;
-
 }
 
 bool Queue::isEmpty ()
 {
     return customers.empty();
+}
+
+int Queue::pop ()
+{
+    Customer c = customers.front();
+    int priorFinishTime = c.finish();
+    customers.pop();
+    return priorFinishTime;
 }
 
 int Queue::serviceFinished ()
