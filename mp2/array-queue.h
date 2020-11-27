@@ -21,15 +21,12 @@ class Queue {
         T back ();
         T priorCustomer();
         int inQueue () {return d_n;};
-        int n () {return d_n;};
-        int r_j () {return j;};
 };
 
 template<typename T>
 void Queue<T>::push (T var)
 {
     if (d_n + 1 > a.length()) resize();
-    // cout << "resize";
     a[(j + d_n) % a.length()] = var;
     d_n++;
 }
@@ -37,7 +34,6 @@ void Queue<T>::push (T var)
 template<typename T>
 void Queue<T>::pop ()
 {
-    // a[j] = NULL;
     j = (j + 1) % a.length();
     d_n--;
     if (a.length() >= 3 * d_n) resize();

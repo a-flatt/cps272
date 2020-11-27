@@ -16,7 +16,6 @@ class CheckoutQueue {
         CheckoutQueue () {};
 
         void addCustomer (int arrival, int priorFinishTime);
-        // Customer front ();
         bool isEmpty ();
         int pop ();
         int serviceFinished ();
@@ -40,22 +39,15 @@ void CheckoutQueue::addCustomer (int arrivalTime, int p)
     }
     else {
         priorCustomer = customers.priorCustomer();
-        // cout << priorCustomer.finish();
-        // cout << "Customer at back: " << priorCustomer.cust_num() << " ";
-        // cout << "(P: " << p;
-        // cout << " F " << priorCustomer.finish() << ")";
         priorFinishTime = max(p, priorCustomer.finish());
         Customer newCustomer(customerCount, arrivalTime, priorFinishTime);
         c = newCustomer;
-        // cout << "ARRIVED" << endl;
         cout << "C" << c.cust_num() << " added";
         cout << "; ST = " << priorFinishTime;
         cout << "; Ss = " << c.servicetime();
         cout << "; FT = " << c.finish();
     }
     customers.push(c);
-    cout << "; (d_n = " << customers.n();
-    cout << "; r_j = " << customers.r_j() << "). ";
     if (d_maxWaitTime < c.waittime())
         d_maxWaitTime = c.waittime();
     if (d_maxCustomers < customers.inQueue())

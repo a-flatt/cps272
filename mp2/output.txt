@@ -1,0 +1,260 @@
+adamplatt@Adams-MBP-4 mp2 % ./mp2-main
+Checkout Queue Simulation by Adam Platt
+---------------------------------------
+Testing two intervals: 1-4 minutes and 1-3 minutes.
+Abbreviations are: ST = Start Time, Ss = Service Time, FT = Finish Time.
+Sim assumes that no additional customers will be accepted after 120 minutes
+However, customers still in queue by 120 minutes will be served.
+
+The results for the first interval of 1-4 minutes are: 
+
+M: 1 - 
+M: 2 - 
+M: 3 - 
+M: 4 - C1 added; ST = 4; Ss = 2; FT = 6
+M: 5 - 
+M: 6 - C1 removed; C2 added; ST = 6; Ss = 3; FT = 9
+M: 7 - 
+M: 8 - 
+M: 9 - C2 removed; C3 added; ST = 9; Ss = 1; FT = 10
+M: 10 - C3 removed; C4 added; ST = 10; Ss = 3; FT = 13
+M: 11 - 
+M: 12 - 
+M: 13 - C4 removed; 
+M: 14 - C5 added; ST = 13; Ss = 2; FT = 16
+M: 15 - C6 added; ST = 16; Ss = 2; FT = 18
+M: 16 - C5 removed; C7 added; ST = 18; Ss = 3; FT = 21
+M: 17 - 
+M: 18 - C6 removed; 
+M: 19 - 
+M: 20 - C8 added; ST = 21; Ss = 4; FT = 25
+M: 21 - C7 removed; 
+M: 22 - 
+M: 23 - 
+M: 24 - C9 added; ST = 25; Ss = 2; FT = 27
+M: 25 - C8 removed; C10 added; ST = 27; Ss = 1; FT = 28
+M: 26 - 
+M: 27 - C9 removed; 
+M: 28 - C10 removed; 
+M: 29 - C11 added; ST = 28; Ss = 2; FT = 31
+M: 30 - 
+M: 31 - C11 removed; C12 added; ST = 31; Ss = 2; FT = 33
+M: 32 - C13 added; ST = 33; Ss = 2; FT = 35
+M: 33 - C12 removed; 
+M: 34 - 
+M: 35 - C13 removed; 
+M: 36 - C14 added; ST = 35; Ss = 3; FT = 39
+M: 37 - C15 added; ST = 39; Ss = 4; FT = 43
+M: 38 - 
+M: 39 - C14 removed; C16 added; ST = 43; Ss = 3; FT = 46
+M: 40 - C17 added; ST = 46; Ss = 4; FT = 50
+M: 41 - 
+M: 42 - 
+M: 43 - C15 removed; C18 added; ST = 50; Ss = 2; FT = 52
+M: 44 - 
+M: 45 - 
+M: 46 - C16 removed; 
+M: 47 - C19 added; ST = 52; Ss = 2; FT = 54
+M: 48 - 
+M: 49 - 
+M: 50 - C17 removed; 
+M: 51 - C20 added; ST = 54; Ss = 2; FT = 56
+M: 52 - C18 removed; 
+M: 53 - 
+M: 54 - C19 removed; 
+M: 55 - C21 added; ST = 56; Ss = 1; FT = 57
+M: 56 - C20 removed; 
+M: 57 - C21 removed; C22 added; ST = 57; Ss = 1; FT = 58
+M: 58 - C22 removed; 
+M: 59 - C23 added; ST = 58; Ss = 2; FT = 61
+M: 60 - C24 added; ST = 61; Ss = 4; FT = 65
+M: 61 - C23 removed; 
+M: 62 - 
+M: 63 - C25 added; ST = 65; Ss = 2; FT = 67
+M: 64 - 
+M: 65 - C24 removed; C26 added; ST = 67; Ss = 2; FT = 69
+M: 66 - C27 added; ST = 69; Ss = 1; FT = 70
+M: 67 - C25 removed; C28 added; ST = 70; Ss = 3; FT = 73
+M: 68 - C29 added; ST = 73; Ss = 1; FT = 74
+M: 69 - C26 removed; 
+M: 70 - C27 removed; 
+M: 71 - C30 added; ST = 74; Ss = 4; FT = 78
+M: 72 - 
+M: 73 - C28 removed; 
+M: 74 - C29 removed; C31 added; ST = 78; Ss = 3; FT = 81
+M: 75 - 
+M: 76 - C32 added; ST = 81; Ss = 1; FT = 82
+M: 77 - 
+M: 78 - C30 removed; C33 added; ST = 82; Ss = 2; FT = 84
+M: 79 - 
+M: 80 - C34 added; ST = 84; Ss = 1; FT = 85
+M: 81 - C31 removed; C35 added; ST = 85; Ss = 2; FT = 87
+M: 82 - C32 removed; 
+M: 83 - 
+M: 84 - C33 removed; C36 added; ST = 87; Ss = 2; FT = 89
+M: 85 - C34 removed; 
+M: 86 - 
+M: 87 - C35 removed; 
+M: 88 - C37 added; ST = 89; Ss = 2; FT = 91
+M: 89 - C36 removed; 
+M: 90 - C38 added; ST = 91; Ss = 3; FT = 94
+M: 91 - C37 removed; 
+M: 92 - 
+M: 93 - 
+M: 94 - C38 removed; C39 added; ST = 94; Ss = 1; FT = 95
+M: 95 - C39 removed; 
+M: 96 - C40 added; ST = 95; Ss = 2; FT = 98
+M: 97 - 
+M: 98 - C40 removed; 
+M: 99 - 
+M: 100 - C41 added; ST = 98; Ss = 3; FT = 103
+M: 101 - 
+M: 102 - C42 added; ST = 103; Ss = 2; FT = 105
+M: 103 - C41 removed; 
+M: 104 - C43 added; ST = 105; Ss = 4; FT = 109
+M: 105 - C42 removed; 
+M: 106 - C44 added; ST = 109; Ss = 1; FT = 110
+M: 107 - 
+M: 108 - 
+M: 109 - C43 removed; 
+M: 110 - C44 removed; C45 added; ST = 110; Ss = 3; FT = 113
+M: 111 - C46 added; ST = 113; Ss = 4; FT = 117
+M: 112 - 
+M: 113 - C45 removed; C47 added; ST = 117; Ss = 3; FT = 120
+M: 114 - C48 added; ST = 120; Ss = 3; FT = 123
+M: 115 - C49 added; ST = 123; Ss = 2; FT = 125
+M: 116 - 
+M: 117 - C46 removed; 
+M: 118 - C50 added; ST = 125; Ss = 1; FT = 126
+M: 119 - 
+M: 120 - C47 removed; C51 added; ST = 126; Ss = 2; FT = 128
+
+Below are the metrics for this queue inverval: 
+Max wait time: 8
+Max customers in queue: 4
+
+The results for the second interval of 1-3 minutes are: 
+
+M: 1 - 
+M: 2 - 
+M: 3 - C1 added; ST = 3; Ss = 1; FT = 4
+M: 4 - C1 removed; 
+M: 5 - 
+M: 6 - C2 added; ST = 4; Ss = 3; FT = 9
+M: 7 - 
+M: 8 - C3 added; ST = 9; Ss = 2; FT = 11
+M: 9 - C2 removed; C4 added; ST = 11; Ss = 1; FT = 12
+M: 10 - 
+M: 11 - C3 removed; 
+M: 12 - C4 removed; C5 added; ST = 12; Ss = 4; FT = 16
+M: 13 - 
+M: 14 - 
+M: 15 - C6 added; ST = 16; Ss = 4; FT = 20
+M: 16 - C5 removed; C7 added; ST = 20; Ss = 3; FT = 23
+M: 17 - 
+M: 18 - C8 added; ST = 23; Ss = 4; FT = 27
+M: 19 - 
+M: 20 - C6 removed; 
+M: 21 - C9 added; ST = 27; Ss = 1; FT = 28
+M: 22 - C10 added; ST = 28; Ss = 2; FT = 30
+M: 23 - C7 removed; C11 added; ST = 30; Ss = 1; FT = 31
+M: 24 - 
+M: 25 - C12 added; ST = 31; Ss = 1; FT = 32
+M: 26 - 
+M: 27 - C8 removed; 
+M: 28 - C9 removed; C13 added; ST = 32; Ss = 3; FT = 35
+M: 29 - 
+M: 30 - C10 removed; C14 added; ST = 35; Ss = 3; FT = 38
+M: 31 - C11 removed; 
+M: 32 - C12 removed; C15 added; ST = 38; Ss = 2; FT = 40
+M: 33 - 
+M: 34 - C16 added; ST = 40; Ss = 1; FT = 41
+M: 35 - C13 removed; 
+M: 36 - C17 added; ST = 41; Ss = 2; FT = 43
+M: 37 - C18 added; ST = 43; Ss = 1; FT = 44
+M: 38 - C14 removed; C19 added; ST = 44; Ss = 2; FT = 46
+M: 39 - 
+M: 40 - C15 removed; 
+M: 41 - C16 removed; C20 added; ST = 46; Ss = 4; FT = 50
+M: 42 - 
+M: 43 - C17 removed; 
+M: 44 - C18 removed; C21 added; ST = 50; Ss = 2; FT = 52
+M: 45 - 
+M: 46 - C19 removed; C22 added; ST = 52; Ss = 3; FT = 55
+M: 47 - 
+M: 48 - 
+M: 49 - C23 added; ST = 55; Ss = 4; FT = 59
+M: 50 - C20 removed; 
+M: 51 - 
+M: 52 - C21 removed; C24 added; ST = 59; Ss = 3; FT = 62
+M: 53 - 
+M: 54 - 
+M: 55 - C22 removed; C25 added; ST = 62; Ss = 3; FT = 65
+M: 56 - C26 added; ST = 65; Ss = 4; FT = 69
+M: 57 - C27 added; ST = 69; Ss = 4; FT = 73
+M: 58 - 
+M: 59 - C23 removed; C28 added; ST = 73; Ss = 1; FT = 74
+M: 60 - 
+M: 61 - C29 added; ST = 74; Ss = 3; FT = 77
+M: 62 - C24 removed; C30 added; ST = 77; Ss = 3; FT = 80
+M: 63 - 
+M: 64 - 
+M: 65 - C25 removed; C31 added; ST = 80; Ss = 3; FT = 83
+M: 66 - C32 added; ST = 83; Ss = 3; FT = 86
+M: 67 - C33 added; ST = 86; Ss = 1; FT = 87
+M: 68 - 
+M: 69 - C26 removed; C34 added; ST = 87; Ss = 3; FT = 90
+M: 70 - 
+M: 71 - 
+M: 72 - C35 added; ST = 90; Ss = 3; FT = 93
+M: 73 - C27 removed; 
+M: 74 - C28 removed; C36 added; ST = 93; Ss = 3; FT = 96
+M: 75 - 
+M: 76 - C37 added; ST = 96; Ss = 3; FT = 99
+M: 77 - C29 removed; 
+M: 78 - 
+M: 79 - C38 added; ST = 99; Ss = 4; FT = 103
+M: 80 - C30 removed; 
+M: 81 - C39 added; ST = 103; Ss = 4; FT = 107
+M: 82 - 
+M: 83 - C31 removed; C40 added; ST = 107; Ss = 2; FT = 109
+M: 84 - 
+M: 85 - 
+M: 86 - C32 removed; C41 added; ST = 109; Ss = 4; FT = 113
+M: 87 - C33 removed; 
+M: 88 - 
+M: 89 - C42 added; ST = 113; Ss = 2; FT = 115
+M: 90 - C34 removed; 
+M: 91 - C43 added; ST = 115; Ss = 2; FT = 117
+M: 92 - 
+M: 93 - C35 removed; C44 added; ST = 117; Ss = 1; FT = 118
+M: 94 - 
+M: 95 - 
+M: 96 - C36 removed; C45 added; ST = 118; Ss = 1; FT = 119
+M: 97 - 
+M: 98 - C46 added; ST = 119; Ss = 4; FT = 123
+M: 99 - C37 removed; C47 added; ST = 123; Ss = 3; FT = 126
+M: 100 - 
+M: 101 - C48 added; ST = 126; Ss = 4; FT = 130
+M: 102 - C49 added; ST = 130; Ss = 1; FT = 131
+M: 103 - C38 removed; C50 added; ST = 131; Ss = 4; FT = 135
+M: 104 - 
+M: 105 - 
+M: 106 - C51 added; ST = 135; Ss = 1; FT = 136
+M: 107 - C39 removed; C52 added; ST = 136; Ss = 4; FT = 140
+M: 108 - 
+M: 109 - C40 removed; C53 added; ST = 140; Ss = 2; FT = 142
+M: 110 - 
+M: 111 - 
+M: 112 - C54 added; ST = 142; Ss = 2; FT = 144
+M: 113 - C41 removed; C55 added; ST = 144; Ss = 4; FT = 148
+M: 114 - 
+M: 115 - C42 removed; 
+M: 116 - C56 added; ST = 148; Ss = 3; FT = 151
+M: 117 - C43 removed; 
+M: 118 - C44 removed; 
+M: 119 - C45 removed; C57 added; ST = 151; Ss = 4; FT = 155
+
+Below are the metrics for this queue inverval: 
+Max wait time: 32
+Max customers in queue: 14
