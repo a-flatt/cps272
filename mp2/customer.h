@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cmath>
 #include <iostream>
 
@@ -10,14 +12,16 @@ class Customer {
     int d_finish;
     int d_servicetime;
     int d_waittime;
+    int d_cust_num;
 
     public:
         Customer ();
-        Customer (int arrival, int startTime);
+        Customer (int cust_num, int arrival, int start);
 
         int finish () {return d_finish;};
         int servicetime() {return d_servicetime;};
         int waittime () {return d_waittime;};
+        int cust_num () {return d_cust_num;};
 };
 
 Customer::Customer ()
@@ -28,14 +32,13 @@ Customer::Customer ()
     d_servicetime = 0;
 }
 
-Customer::Customer (int arrival, int start)
+Customer::Customer (int cust_num, int arrival, int start)
 {
+    d_cust_num = cust_num;
     d_arrival = arrival;
     (arrival > start) ? d_start = arrival : d_start = start;
     d_servicetime = rand() % 4 + 1;
     d_finish = d_start + d_servicetime;
     d_waittime = d_start - d_arrival;
-    cout << "Arrival: " << d_arrival << endl;
-    cout << "Start: " << d_start << endl;
 }
 

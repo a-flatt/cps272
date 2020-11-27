@@ -1,4 +1,4 @@
-#include "queue.h"
+#include "checkoutqueue.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -6,8 +6,9 @@ using namespace std;
 int SIMULATION_TIME = 120;
 
 int main ()
+
 {
-    Queue queue;
+    CheckoutQueue queue;
     int arrivalTime = 0;
     int elapsedTime = 1;
     int priorFinishTime;
@@ -15,14 +16,15 @@ int main ()
     while (elapsedTime < SIMULATION_TIME){
         arrivalTime += rand() % 4 + 1;
         while (elapsedTime <= arrivalTime){
-            cout << "Elapsed Time: " << elapsedTime << endl;
+            cout << "\n" << "M: " << elapsedTime << " - ";
             if ((!queue.isEmpty()) && elapsedTime == queue.serviceFinished()){
-                queue.pop();
-                cout << "A customer has been removed from the queue." << endl;
+                priorFinishTime = queue.pop();
             }
             elapsedTime++;
         }
-        queue.addCustomer(arrivalTime);
+        queue.addCustomer(arrivalTime, priorFinishTime);
     }
+    cout << "\n";
     cout << "Max wait time: " << queue.maxWaitTime() << endl;
-}
+    cout << "Max customers in queue: " << queue.maxCustomers() << endl;
+} 
