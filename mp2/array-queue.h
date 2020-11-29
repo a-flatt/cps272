@@ -67,7 +67,7 @@ T Queue<T>::priorCustomer ()
 {
     int idx = (j + d_n - 1) % a.length();
     if (idx == -1) 
-        return a[0];
+        return a[j];
     else
         return a[idx];
 }
