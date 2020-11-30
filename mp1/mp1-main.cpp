@@ -1,32 +1,30 @@
-#include <iostream>
-#include <stack>
-#include <queue>
-#include <sstream>
+#include "queue.h"
+#include "stack.h"
 #include <fstream>
+#include <sstream>
 
-using namespace std;
-
-void firstFunction ()
+int firstFunction ()
 {
-    stack<char> stringone;
-    queue<char> stringtwo;
+    Stack<char> stringone;
+    Queue<char> stringtwo;
     bool match = true;
     char str;
-    string somestr = "ABC#GBAA";
+    string somestr;
+    
+    cout << "Input a string: ";
+    cin >> somestr;
     stringstream iss(somestr);
 
     while (iss.get(str)){
         if (str == '#') break;
-        cout << str << endl;
         stringone.push(str);
     }
     while (iss.get(str)){
-        cout << str << endl;
         stringtwo.push(str);
     }
     
     while (!(stringone.empty() || stringtwo.empty())){
-        if (stringone.size() != stringtwo.size()){
+        if (stringone.length() != stringtwo.length()){
             match = false;
             break;
         }
@@ -40,7 +38,61 @@ void firstFunction ()
         }
     }
     
-    cout << boolalpha << match << endl;
+    (match) ? 
+        cout << somestr << " matches the pattern." << "\n"
+        : 
+        cout << somestr << " does not match the pattern." << "\n";
+}
+
+void multibaseOutput (int d_num, int b_num, Stack<int> rems)
+{
+    if (d_num == 0){
+        while (!rems.empty()){
+            int num = rems.top();
+            if (num >= 0 && num <= 9)
+                cout << (char)(num + '0');
+            else
+                cout << (char)(num - 10 + 'A');
+            rems.pop();
+        }
+    cout << '\n';
+    return;  
+    }
+
+    int x = d_num % b_num;
+    rems.push(x);
+
+    multibaseOutput(d_num/b_num, b_num, rems);
+}
+
+int secondFunction ()
+{
+    bool run = true;
+
+    while (run) {
+        
+        Stack<int> remainders;
+        int decimal = -1;
+        while (decimal < 0) {
+            cout << "Please input a non-negative number: ";
+            cin >> decimal;
+        }
+
+        int base = 1;
+        while ((base < 2 || base > 16) && base != 0) {
+            cout << "Input a base between 2 and 16: ";
+            cin >> base;
+        }
+
+        if (decimal == 0 && base == 0) {
+            run = false;
+        } 
+        else {
+            cout << "\n";
+            cout << decimal << " base " << base << " is ";
+            multibaseOutput(decimal, base, remainders);
+        }
+    } 
 }
 
 bool match(char o_parent, char c_parent)
@@ -55,11 +107,11 @@ bool match(char o_parent, char c_parent)
 		return false;
 }
 
-bool thirdFunctionHelper (string str)
+bool balanced (string str)
 {
     char _str;
-    stack<char> left_parents;
-    stack<char> right_parents;
+    Stack<char> left_parents;
+    Stack<char> right_parents;
     bool par_match = true;
     
     stringstream _iss(str);
@@ -81,24 +133,43 @@ bool thirdFunctionHelper (string str)
     return par_match;
 }
 
-void thirdFunction ()
+int thirdFunction ()
 {
     string file_name, line;
     char _str;
-    ifstream in_file("balance.txt"); 
 
-    // cout << "Please enter a file name: ";
-    // cin >> file_name;
+    cout << "Please enter a file name: ";
+    cin >> file_name;
+    ifstream in_file(file_name); 
 
     while (getline(in_file, line)){
-        // stringstream _iss(line);
-        // thirdFunctionHelper(line);
-        cout << boolalpha << thirdFunctionHelper(line) << endl;
+        bool b = balanced(line);
+        cout << "The symbols: " << line << " are ";
+        b ? cout << "balanced." : cout << "not balanced.";
+        cout << "\n";
     }
 }
 
 int main ()
 {
-    // firstFunction();
-    thirdFunction();
+    bool quit = false;
+    int choice;
+
+    while (!quit){
+        cout << "Please select from the following functions: " << "\n";
+        cout << "1. Pattern Match" << "\n";
+        cout << "2. Decimal to Base Conversion" << "\n";
+        cout << "3. Balanced Parentheses" << "\n";
+        cout << "4. Quit" << "\n";
+        cout << "Choice: "; cin >> choice;
+
+        switch (choice){
+            case 1: firstFunction(); break;
+            case 2: secondFunction(); break;
+            case 3: thirdFunction(); break;
+            case 4: quit = true; break;
+        }
+        cout << "\n";
+    }
+    cout << "The program has been exited." << endl;
 }
