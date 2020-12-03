@@ -26,7 +26,7 @@ class DLList {
 
         int size() {return n;};
         void sortedInsert(DLList **head_ref, Node* newNode);
-        void insertionSort(DLList **head_ref);
+        void insertionSort(DLList **f_elems, DLList **t_elems);
 }; 
 
 DLList::DLList()
@@ -63,13 +63,16 @@ void DLList::push(int x)
 
 void DLList::print()
 {
+    int count = 1;
     Node *h = dummy.next;
     Node *t = h;
 
     while(h->next != t){
-        cout << h->data << " " << h << "\n";
+        cout << count << " " << h->data << " " << h << "\n";
         h = h->next;
+        count++;
     }
+    cout << "\n";
 }
 
 void DLList::sortedInsert(DLList **sorted, Node* newNode)
@@ -98,11 +101,14 @@ void DLList::sortedInsert(DLList **sorted, Node* newNode)
     }   
 }
 
-void DLList::insertionSort(DLList **head_ref)
+void DLList::insertionSort(DLList **f_elems, DLList **t_elems)
 {
+    (*f_elems)->dummy.prev->next = (*t_elems)->dummy.next;
+    (*t_elems)->dummy.prev->next = &(*f_elems)->dummy;
+    
     DLList *sorted = new DLList;
-    Node *current = (*head_ref)->dummy.next;
-    Node *finish = &(*head_ref)->dummy;
+    Node *current = (*f_elems)->dummy.next;
+    Node *finish = &(*f_elems)->dummy;
 
     while(current != finish){
         Node *next = current->next;
