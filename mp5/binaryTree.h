@@ -7,7 +7,7 @@ using namespace std;
 template <typename T>
 class BinaryTree {
     struct Node {
-        T data = NULL;
+        T data;
         Node *parent;
         Node *left;
         Node *right;
@@ -20,6 +20,10 @@ class BinaryTree {
         Node* findLastNode(T data);
         bool add(T data);
         bool addChildNode(Node *p, Node *c);
+        int size();
+        int sizeOf(Node *p);
+        int height();
+        int heightOf(Node *p);
 
         void inOrderTraversal();
         void inOrder(Node *p);
@@ -27,9 +31,6 @@ class BinaryTree {
         void postOrder(Node *p);
         void preOrderTraversal();
         void preOrder(Node *p);
-
-        // int compare(T &x, T &y); can this go?
-
 };
 
 template <typename T>
@@ -122,4 +123,30 @@ template <typename T>
 void BinaryTree<T>::inOrderTraversal()
 {
     inOrder(root);
+}
+
+template <typename T>
+int BinaryTree<T>::size()
+{
+    return sizeOf(root);
+}
+
+template <typename T>
+int BinaryTree<T>::sizeOf(Node *p)
+{
+    if(p == nullptr) return 0;
+    return 1 + sizeOf(p->left) + sizeOf(p->right);
+}
+
+template <typename T>
+int BinaryTree<T>::height()
+{
+    return heightOf(root);
+}
+
+template <typename T>
+int BinaryTree<T>::heightOf(Node *p)
+{
+    if(p == nullptr) return -1;
+    return 1 + max(heightOf(p->left), heightOf(p->right));
 }
