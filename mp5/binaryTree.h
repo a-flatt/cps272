@@ -7,26 +7,33 @@ using namespace std;
 template <typename T>
 class BinaryTree {
     struct Node {
-        T data;
-        T *parent;
-        T *left;
-        T *right;
+        T data = NULL;
+        Node *parent;
+        Node *left;
+        Node *right;
         Node () {parent = left = right = NULL;};
     };
-    Node *root; // ????
+    Node *root;
     
     public:
         BinaryTree() {};
-        Node* findLast(T data);
+        Node* findLastNode(T data);
         bool add(T data);
-        bool addChild(Node *p, Node *c);
+        bool addChildNode(Node *p, Node *c);
+
+        void inOrderTraversal();
+        void inOrder(Node *p);
+        void postOrderTraversal();
+        void postOrder(Node *p);
+        void preOrderTraversal();
+        void preOrder(Node *p);
 
         // int compare(T &x, T &y); can this go?
 
 };
 
 template <typename T>
-typename BinaryTree<T>::Node* BinaryTree<T>::findLast(T data)
+typename BinaryTree<T>::Node* BinaryTree<T>::findLastNode(T data)
 {
     Node *w = root, *prev = nullptr;
     while(w != nullptr){
@@ -43,16 +50,7 @@ typename BinaryTree<T>::Node* BinaryTree<T>::findLast(T data)
 }
 
 template <typename T>
-bool BinaryTree<T>::add(T data)
-{
-    Node *p = findLast(data);
-    Node *c = new Node;
-    c->data = data;
-    return addChild(p, c);
-}
-
-template <typename T>
-bool BinaryTree<T>::addChild(Node *p, Node *c)
+bool BinaryTree<T>::addChildNode(Node *p, Node *c)
 {
     if(p == nullptr) root = c;
     else{
@@ -66,4 +64,62 @@ bool BinaryTree<T>::addChild(Node *p, Node *c)
         c->parent = p;
     }
     return true;
+}
+
+template <typename T>
+bool BinaryTree<T>::add(T data)
+{
+    Node *p = findLastNode(data);
+    Node *c = new Node;
+    c->data = data;
+    return addChildNode(p, c);
+}
+
+template <typename T>
+void BinaryTree<T>::postOrder(Node *p)
+{
+    if(p != nullptr){
+        postOrder(p->left);
+        postOrder(p->right);
+        cout << p->data << " ";
+    }
+}
+
+template <typename T>
+void BinaryTree<T>::postOrderTraversal()
+{
+    postOrder(root);
+}
+
+template <typename T>
+void BinaryTree<T>::preOrder(Node *p)
+{
+    if(p != nullptr){
+        cout << p->data << " ";
+        preOrder(p->left);
+        preOrder(p->right);
+        
+    }
+}
+
+template <typename T>
+void BinaryTree<T>::preOrderTraversal()
+{
+    preOrder(root);
+}
+
+template <typename T>
+void BinaryTree<T>::inOrder(Node *p)
+{
+    if(p != nullptr){
+        inOrder(p->left);
+        cout << p->data << " ";
+        inOrder(p->right);
+    }
+}
+
+template <typename T>
+void BinaryTree<T>::inOrderTraversal()
+{
+    inOrder(root);
 }
