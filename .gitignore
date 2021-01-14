@@ -9,6 +9,9 @@ mp1/mp1-main
 mp1/q1-main
 mp3/mp3-main
 
+code-examples/
+hashtables/
+
 # Compiled source #
 ###################
 *.com
@@ -17,3 +20,7 @@ mp3/mp3-main
 *.exe
 *.o
 *.so
+mp5/mp4-main
+mp4/login
+mp3/DLList
+.DS_Store
